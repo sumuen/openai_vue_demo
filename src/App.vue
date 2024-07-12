@@ -13,7 +13,7 @@ async function createCompletionsChat() {
     const userMessages = [{ role: 'user', content: content.value }]
 
     const requestData = JSON.stringify({
-      model: 'gpt-3.5-turbo',
+      model: 'moonshot-v1-8k',
       messages: userMessages,
       stream: true,
     })
@@ -27,7 +27,7 @@ async function createCompletionsChat() {
       body: requestData,
     }
 
-    const response = await fetch('https://api.openai.com/v1/chat/completions', fetchOptions)
+    const response = await fetch('https://api.moonshot.cn/v1/chat/completions', fetchOptions)
     const reader = response.body.getReader()
     res.value = ''
 
